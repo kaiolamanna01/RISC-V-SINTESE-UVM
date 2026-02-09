@@ -1,5 +1,0 @@
-//
-// File created by:  xrun
-// Do not modify this file
-
-s1::(22Jan2026:01:01:43):( xrun -uvmhome /apps/cds/XCELIUM2409/tools.lnx86/methodology/UVM/CDNS-1.2 -uvm -coverage all -sv -64bit -access +rwc -clean -nowarn DLCPTH -f filelist.f -top tb_top +UVM_TESTNAME=dut_extended_test +UVM_NO_RELNOTES )&&(./xcelium.d/env.d/env.history.22Jan2026_01_01_43)
