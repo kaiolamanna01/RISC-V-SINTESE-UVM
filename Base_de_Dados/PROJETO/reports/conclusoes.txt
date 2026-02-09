@@ -1,0 +1,46 @@
+Os reports mostram um resultado impressionante: você conseguiu fechar o timing exatamente em 0 ps de slack. Isso significa que a ferramenta de síntese (Genus) trabalhou no limite absoluto para atender aos 10ns solicitados.
+
+Aqui está a análise técnica detalhada do que aconteceu com o seu hardware:
+1. Análise de Timing (O "Pulo do Gato")
+
+O dado chega ao endpoint exatamente no limite do Required Time (9886ps).
+
+    O Caminho Crítico: O caminho começa em um registrador de Forwarding (rd_MEMWB_reg) e termina no registrador de resultado da FPU (fpu_result_EXMEM_reg).
+
+    A "Mágica" da Síntese: Note que o Genus utilizou células de alta força de acionamento (drive strength) como NOR2X8, OR2X6, e INVX3.
+
+        A célula g31605 (NOR2X8) está lidando com um fanout de 85, o que é altíssimo.
+
+        O delay total do Data Path foi de 9086ps (9.08ns). Somado aos delays de clock e incerteza, ele ocupou 100% da janela de 10ns.
+
+    Ponto de Atenção: O uso de células XL (como MXI2XL) e X1 em um caminho tão apertado indica que a ferramenta tentou equilibrar o consumo, mas se você baixar para 9ns, essas células certamente serão substituídas por versões maiores.
+
+2. Análise de Área (PPA - Area)
+
+A área total saltou para 70.629μm2.
+
+    O módulo datapath domina quase 100% da área (70.425μm2).
+
+    Dentro dele, a data_memory (18.526μm2) e os reg_files (11.000μm2 cada) são os maiores consumidores.
+
+    Comparação: Se compararmos com o cenário de 20ns (provavelmente), você verá que a área aumentou. Para atingir 10ns, o Genus "infla" as portas lógicas para que elas chaveiem mais rápido.
+
+3. Análise de Potência (PPA - Power)
+
+    Total Power: 1.329mW.
+
+    Leakage (Estática): 1.29μW (apenas 0.10% do total). Isso é excelente e esperado para essa tecnologia.
+
+    Internal Power: 1.23mW (92.94%). Este é o consumo interno das células ao carregar/descarregar capacitâncias internas. Como o timing está muito apertado e as células são grandes, o consumo interno domina.
+
+    Registers: São os vilões do consumo aqui, responsáveis por 86.77% da potência total. Isso sugere que o seu clock tree (ou a quantidade de flip-flops chaveando simultaneamente) é o foco principal de dissipação de calor.
+
+Diagnóstico e Próximos Passos
+
+Você atingiu o "Sweet Spot" da síntese: o design é o mais rápido possível antes de começar a falhar. No entanto, operar com Slack = 0 é arriscado para o Place & Route (P&R), pois o roteamento real adicionará delays de fios (nets) que o Genus ainda está estimando de forma simplificada.
+
+Sugestões para melhorar a robustez:
+
+    Pipeline: O caminho crítico atravessa a lógica de Forwarding e a FPU. Se você precisar de mais velocidade (ex: 5ns), terá que quebrar esse caminho em dois estágios de pipeline.
+
+    Redução de Fanout: O fanout de 85 na célula g31605 é um gargalo. Você pode tentar o comando set_db max_fanout 32 para forçar a ferramenta a inserir buffers e distribuir melhor a carga.

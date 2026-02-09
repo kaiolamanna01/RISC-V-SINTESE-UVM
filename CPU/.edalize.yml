@@ -1,0 +1,64 @@
+name: cpu_project
+flow: icarus
+toplevel: cpu_tb
+
+filesets:
+  rtl:
+    files:
+      - adder.v
+      - adder_tb.v
+      - alu.v
+      - alu_tb.v
+      - aludec.v
+      - aludec_tb.v
+      - control.v
+      - control_tb.v
+      - cpu.v
+      - cpu_tb.v
+      - cpu2.v
+      - cpu2_tb.v
+      - data_memory.v
+      - data_memory_tb.v
+      - datapath.v
+      - datapath_tb.v
+      - datapath2.v
+      - ex_mem_reg.v
+      - fowarding_control.v
+      - fp2int.v
+      - FPU.v
+      - FPU_tb.v
+      - hazard_detection.v
+      - id_ex_reg.v
+      - if_id_reg.v
+      - instruction_memory.v
+      - instruction_memory_tb.v
+      - instruction_memory2.v
+      - int2fp.v
+      - maindec.v
+      - maindec_tb.v
+      - mem_wb_reg.v
+      - memByteAddressable32WF.v
+      - memByteAddressable32WF_tb.v
+      - memory_write_first.v
+      - multiply.v
+      - mux.v
+      - mux_tb.v
+      - pc_reg.v
+      - pc_reg_tb.v
+      - register_file.v
+      - register_file_f.v
+      - register_file_tb.v
+      - sign_extender.v
+      - sign_extender_tb.v
+    file_type: verilogSource
+
+  data:
+    files:
+      - bubblehazard.txt
+      - datahazard.txt
+      - riscvtest.txt
+    file_type: user
+
+tool_options:
+  icarus:
+    top_module: cpu_tb

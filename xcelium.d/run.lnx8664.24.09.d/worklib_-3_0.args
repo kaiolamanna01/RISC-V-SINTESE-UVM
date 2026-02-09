@@ -1,0 +1,30 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-RUNMODE
+-sv
+-NOWARN
+DLCPTH
+-INCDIR
+./UVM
+-INCDIR
+./CPU
+-I_INCDIR
+/apps/cds/XCELIUM2409/tools.lnx86/methodology/UVM/CDNS-1.2/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/apps/cds/XCELIUM2409/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv
+-UPDATE
+-CDSLIB
+./xcelium.d/run.lnx8664.24.09.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.24.09.d/hdlrun.var
+-work
+worklib
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+/apps/cds/XCELIUM2409/tools.lnx86/methodology/UVM/CDNS-1.2/sv/src/uvm_pkg.sv
+/apps/cds/XCELIUM2409/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/cdns_uvm_pkg.sv

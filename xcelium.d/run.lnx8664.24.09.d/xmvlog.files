@@ -1,0 +1,33 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/aluno/Imagens/PROJETOFINAL/UVM/dut_if.sv
+/home/aluno/Imagens/PROJETOFINAL/UVM/tb_package.sv
+/home/aluno/Imagens/PROJETOFINAL/UVM/tb_top.sv
+/home/aluno/Imagens/PROJETOFINAL/CPU/adder.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/alu.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/aludec.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/control.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/cpu.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/data_memory.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/datapath.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/ex_mem_reg.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/fowarding_control.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/fp2int.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/FPU.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/hazard_detection.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/id_ex_reg.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/if_id_reg.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/instruction_memory.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/int2fp.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/maindec.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/mem_wb_reg.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/memByteAddressable32WF.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/memory_write_first.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/multiply.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/mux.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/pc_reg.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/register_file_f.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/register_file.v
+/home/aluno/Imagens/PROJETOFINAL/CPU/sign_extender.v

@@ -1,0 +1,31 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++UVM_NO_RELNOTES
++incdir+./UVM
++incdir+./CPU
+-loadpli
+/apps/cds/XCELIUM2409/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
+-COVERAGE
+all
+-ACCESS
++rwc
+-NOWARN
+DLCPTH
++UVM_TESTNAME=dut_extended_test
+-no_analogsolver
+-MESSAGES
+tb_top
+-dms_perf
+-XLMODE
+./xcelium.d/run.lnx8664.24.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.24.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.24.09.d/hdl.var
+-WORK
+worklib
+-IRUNHASTOP
+-HASXLMODE
